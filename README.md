@@ -132,10 +132,9 @@ To run the full system:
 
 * Launch the Unity project with the replaced Assets folder.
 
-✅ Verify Unity–ROS 2 communication is working.
-
-In Unity, go to Robotics → ROS Settings and configure the IP and port of the ROS 2 machine.
-Also, in the Hierarchy panel, select the ROS_Connector GameObject and in the Inspector configure the same IP and port.
+✅ Verify Unity–ROS 2 communication is working:
+ * In Unity, go to Robotics → ROS Settings and configure the IP and port of the ROS 2 machine.
+ * Also, in the Hierarchy panel, select the ROS_Connector GameObject and in the Inspector configure the same IP and port.
 
 ## 8. Multimedia
 The multimedia folder includes:
