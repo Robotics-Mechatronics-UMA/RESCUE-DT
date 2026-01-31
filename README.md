@@ -38,9 +38,9 @@ colcon build
 * Download the folder containing the project: Unity-ROS2-Project. **IMPORTANT**: This repository is being updated. In the meantime, please refer to https://github.com/Kmdnb/TFG_KDN_UnityROS2 for the Unity files.
 
 * Open the Unity project:
- * From Unity Hub - Select "Open project": Once the editor has started, you will see a welcome screen. Look for and select the "Open project" option.
- * Navigate to the folder where the project is downloaded: A file explorer window will open. Navigate to the location where the Unity-ROS2-Project folder is located.
- * Select the folder and open: Once you have located the project folder, select it and click the "Open" button.
+  * From Unity Hub - Select "Open project": Once the editor has started, you will see a welcome screen. Look for and select the "Open project" option.
+  * Navigate to the folder where the project is downloaded: A file explorer window will open. Navigate to the location where the Unity-ROS2-Project folder is located.
+  * Select the folder and open: Once you have located the project folder, select it and click the "Open" button.
 
 ## 3. ROS2-Unity Communication
 Communication between ROS2 and Unity is established through the ROS-TCP-Connector. ROS2 nodes publish and subscribe to topics to send and receive data. In Unity, scripts handle reading and writing topic data. Follow the steps in the official ROS-TCP-Connector documentation to install and run this package in Unity and ROS2: https://github.com/Unity-Technologies/Unity-Robotics-Hub/tree/main This package includes the URDF Importer for Unity.  
@@ -88,56 +88,65 @@ At this point, you have a working simulator of the environment and ARGO J8 UGV, 
 
 ## 6. Extended functionalities
 
-6.1 Download & Replace Assets
+**6.1 Download & Replace Assets**
 Download this repository and replace the Assets folder of the original Unity project with the one provided here.
 
-# Example command (adjust the path to your project)
-cp -r ./TFG-OAR-ROS2-Unity/Assets ./TFG_KDN_UnityROS2/Assets
-3.2 Additional Elements
+* Example command (adjust the path to your project):
+```
+cp -r ./RESCUE-DT/Assets ./LAENTIEC-J8_ros2_unity/Assets
+```
+
+**6.2 Additional Elements**
 This folder includes:
 
 Complete models for the UAV, the J8 rover, and human characters.
 All scripts used for control, simulation, and agent logic.
 Materials and textures for realistic terrain rendering.
-3.3 Key Scripts Included
-The following scripts are included as major innovations in this project:
 
-CameraSwitch – Switch between different Unity cameras using the C key.
-CenitalDroneCamera – Provides a top-down view of the UAV.
-DronePoseSubscriber – Main UAV script that subscribes to GPS data via ROS 2 and moves the drone accordingly.
-FlyCamera – Free camera control script.
-FollowCameraDrone – Third-person follow view of the UAV.
-HumanFollower – Controls SAR agents, showing real-time GPS position and helmet battery percentage.
-J8TrayectoryFollower – Main Rover script to show real-time position and odometry from physical sensors.
-4. New Agents & Features
-4.1 UAV (Multirotor Drone)
+**6.3 Key Scripts Included**
+The following scripts are included as differences respect to the pure simulator in Section 5:
+
+* CameraSwitch – Switch between different Unity cameras using the C key.
+* CenitalDroneCamera – Provides a top-down view of the UAV.
+* DronePoseSubscriber – Main UAV script that subscribes to GPS data via ROS 2 and moves the drone accordingly.
+* FlyCamera – Free camera control script.
+* FollowCameraDrone – Third-person follow view of the UAV.
+* HumanFollower – Controls SAR agents, showing real-time GPS position and helmet battery percentage.
+* J8TrayectoryFollower – Main Rover script to show real-time position and odometry from physical sensors.
+
+**6.4 UAV (Multirotor Drone)**
 Based on a six-rotor platform inspired by the DJI Matrice 600.
 Controlled via ROS 2 topic with GPS data from a real system.
 Follows waypoints in real-time simulation.
-4.2 Human SAR Agents
+
+**6.5 Human SAR Agents**
 Human characters representing first responders.
-Each carries a GPS-enabled helmet that shares position and battery info with Unity via ROS 2.
-5. Project Execution
+Each one carries a GPS-enabled helmet that shares position and battery info with Unity via ROS 2.
+
+## 7. Project Execution
 To run the full system:
 
-Start your ROS 2 environment in your Linux terminal. (Launch the nodes that publish GPS and sensor data if you are using rosbag).
+* Start your ROS 2 environment in your Linux terminal. (Launch the nodes that publish GPS and sensor data if you are using rosbag).
 
-Start the ROS-TCP-Endpoint server.
+* Start the ROS-TCP-Endpoint server.
 
-Launch the Unity project with the replaced Assets folder.
+* Launch the Unity project with the replaced Assets folder.
 
 ✅ Verify Unity–ROS 2 communication is working.
 
 In Unity, go to Robotics → ROS Settings and configure the IP and port of the ROS 2 machine.
 Also, in the Hierarchy panel, select the ROS_Connector GameObject and in the Inspector configure the same IP and port.
-6. Multimedia
+
+## 8. Multimedia
 The multimedia folder includes:
 
-Screenshots from the Unity simulation.
-Real photos from field testing with the Rover J8.
-Comparative visuals between simulation and real-world deployment.
+* Screenshots from the Unity simulation.
+* Real photos from field testing with the Rover J8.
+* Comparative visuals between simulation and real-world deployment.
 
-
-## 6. Multimedia
 This section includes an image of the robot and the simulated terrain, as well as a video summarizing the simulation's operation.
-<img width="594" height="1863" alt="image" src="https://github.com/user-attachments/assets/1464a2a4-7ffe-4533-ab06-0f34b70e1ae5" />
+
+## Notice:
+This repository is a streamlined version of the original works. You can find more details at:
+* https://github.com/Kmdnb/TFG_KDN_UnityROS2
+* https://github.com/OscarAlmenara/TFG-OAR-ROS2-Unity
